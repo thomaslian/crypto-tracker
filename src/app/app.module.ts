@@ -1,15 +1,20 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { AppComponent } from './app.component';
-import { MainComponent } from './pages/main/main.component';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 //PrimeNG imports
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
+import { TableModule } from 'primeng/table';
+
+import { AppComponent } from './app.component';
+import { MainComponent } from './pages/main/main.component';
 import { SettingsComponent } from './pages/settings/settings.component';
+
+
 
 
 @NgModule({
@@ -21,9 +26,11 @@ import { SettingsComponent } from './pages/settings/settings.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     ButtonModule,
     InputTextModule,
-    FormsModule
+    FormsModule,
+    TableModule
   ],
   providers: [],
   bootstrap: [AppComponent]
