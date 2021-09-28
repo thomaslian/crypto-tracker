@@ -1,2 +1,7 @@
-<p>main works!</p>
 <button pButton type="button" label="Test button"></button>
+<div class="p-field">
+    <label for="input-title">Title</label>
+    <input pInputText id="input-title" type="text" [(ngModel)]="title" />
+</div>
+
+<p>{{title}}</p>
