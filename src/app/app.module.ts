@@ -9,12 +9,14 @@ import { FormsModule } from '@angular/forms';
 //PrimeNG imports
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
+import { SettingsComponent } from './pages/settings/settings.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     MainComponent,
+    SettingsComponent,
   ],
   imports: [
     BrowserModule,
