@@ -19,7 +19,7 @@ export class CoinbaseService {
   getAccountDetails(): Observable<any[]> {
     const timeStamp = this.getTimestamp();
     const method: string = "GET";
-    const requestPath: string = `/v2/accounts`;
+    const requestPath: string = `/v2/accounts?&limit=100`;
     const cbAccessString: string = sha256.hmac(this.apiSecret, timeStamp + method + requestPath);
     return new Observable((observer: Observer<any[]>) => {
       this.http.get(this.coinbaseApiUrl + requestPath, { headers: { "CB-ACCESS-KEY": this.apiKey, "CB-ACCESS-SIGN": cbAccessString, "CB-ACCESS-TIMESTAMP": timeStamp } }).subscribe((accounts: any) => {
