@@ -1,1 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+    padding: 0;
+    margin: 0;
+    height: 100vh;
+    width: 100vw;
+}
+
+body app-root {
+    display: grid;
+    grid-template-columns: 250px 20% 20% 20% 20%;
+    grid-template-rows: 150px auto 150px;
+}

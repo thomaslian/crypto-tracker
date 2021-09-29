@@ -15,15 +15,7 @@ export class CoinbaseService {
 
   constructor(private http: HttpClient) { }
 
-  /**
-   * 
-   * @returns UTC Timestamp as string
-   */
-  getTimestamp(): string {
-    return Math.ceil((new Date()).getTime() / 1000).toString();
-  }
-
-  getAccounts(): Observable<Array<any>> {
+  getAccountDetails(): Observable<Array<any>> {
     const timeStamp = this.getTimestamp();
     const method: string = "GET";
     const requestPath: string = `/v2/accounts`;
@@ -33,8 +25,18 @@ export class CoinbaseService {
         observer.next(accounts.data)
         observer.complete();
       }, error => {
+        console.log("Could not get data from Coinbase");
         observer.error(error);
       });
     });
+  }
+
+
+  /**
+ * Get current UTC Timestamp
+ * @returns UTC Timestamp as string
+ */
+  private getTimestamp(): string {
+    return Math.ceil((new Date()).getTime() / 1000).toString();
   }
 }

@@ -9,10 +9,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
 import { TableModule } from 'primeng/table';
+import { SidebarModule } from 'primeng/sidebar';
+import { MenuModule } from 'primeng/menu';
 
 import { AppComponent } from './app.component';
 import { MainComponent } from './pages/main/main.component';
 import { SettingsComponent } from './pages/settings/settings.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
 
 
 
@@ -22,6 +25,7 @@ import { SettingsComponent } from './pages/settings/settings.component';
     AppComponent,
     MainComponent,
     SettingsComponent,
+    SidebarComponent,
   ],
   imports: [
     BrowserModule,
@@ -31,7 +35,9 @@ import { SettingsComponent } from './pages/settings/settings.component';
     ButtonModule,
     InputTextModule,
     FormsModule,
-    TableModule
+    TableModule,
+    SidebarModule,
+    MenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]

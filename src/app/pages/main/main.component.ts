@@ -31,10 +31,10 @@ export class MainComponent implements OnInit {
     this.getUsers().then((users: User[]) => {
       this.users = users;
     });
-    
-    this.coinbase.getAccounts().subscribe(res => {
+    /*
+    this.coinbase.getAccountDetails().subscribe(res => {
       console.log(res);
-    });
+    });*/
   }
 
   getUsers(): Promise<User[]> {

@@ -7,7 +7,7 @@ import { PrimeNGConfig } from 'primeng/api';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'crypto-tracker';
+  title: string = 'crypto-tracker';
 
   constructor(private primengConfig: PrimeNGConfig) {}
 
