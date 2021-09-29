@@ -18,6 +18,7 @@ import { SettingsComponent } from './pages/settings/settings.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { CoinbaseComponent } from './pages/coinbase/coinbase.component';
 import { TableComponent } from './components/table/table.component';
+import { LoadingSpinnerComponent } from './components/loading-spinner/loading-spinner.component';
 
 
 
@@ -30,6 +31,7 @@ import { TableComponent } from './components/table/table.component';
     SidebarComponent,
     CoinbaseComponent,
     TableComponent,
+    LoadingSpinnerComponent,
   ],
   imports: [
     BrowserModule,
