@@ -28,13 +28,13 @@ export class CoinbaseService {
             return {
               id: wallet.id,
               name: wallet.name,
-              amount: wallet.balance.amount,
+              amount: parseFloat(wallet.balance.amount),
               currency: wallet.balance.currency,
-              native_amount: wallet.native_balance.amount,
+              native_amount: parseFloat(wallet.native_balance.amount),
               native_currency: wallet.native_balance.currency
             }
           });
-        console.log(wallets);
+          console.log(wallets)
         observer.next(wallets)
         observer.complete();
       }, error => {

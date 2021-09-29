@@ -1,4 +1,5 @@
 export interface TableHeader {
     field: string,
-    header: string
+    header: string,
+    sort: boolean
 }

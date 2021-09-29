@@ -13,12 +13,12 @@ export class CoinbaseComponent implements OnInit {
 
   subscription: Subscription;
   tableHeaders: TableHeader[] = [
-    { field: "id", header: "ID" },
-    { field: "name", header: "Name" },
-    { field: "amount", header: "Amount" },
-    { field: "currency", header: "Currency" },
-    { field: "native_amount", header: "Native amount" },
-    { field: "native_currency", header: "Native currency" },];
+    { field: "id", header: "ID", sort: false },
+    { field: "name", header: "Name", sort: false},
+    { field: "amount", header: "Amount", sort: true },
+    { field: "currency", header: "Currency", sort: false },
+    { field: "native_amount", header: "Native amount", sort: true },
+    { field: "native_currency", header: "Native currency", sort: false },];
   wallets: ExchangeWallet[] = [];
 
   constructor(private coinbase: CoinbaseService) { }

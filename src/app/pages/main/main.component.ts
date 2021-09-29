@@ -21,10 +21,10 @@ export class MainComponent implements OnInit {
   title: string;
   users: User[];
   tableHeaders: TableHeader[] = [
-    { field: 'name', header: 'Name' },
-    { field: 'username', header: 'Username' },
-    { field: 'email', header: 'Email' },
-    { field: 'website', header: 'Website' }];
+    { field: 'name', header: 'Name', sort: false },
+    { field: 'username', header: 'Username', sort: false },
+    { field: 'email', header: 'Email', sort: false },
+    { field: 'website', header: 'Website', sort: false }];
 
 
   constructor(
