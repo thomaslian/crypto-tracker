@@ -20,16 +20,29 @@ export class CoinbaseComponent implements OnInit {
     { field: "native_amount", header: "Native amount", sort: true },
     { field: "native_currency", header: "Native currency", sort: false },];
   wallets: ExchangeWallet[] = [];
+  chartLabels: string[] = [];
+  chartData: number[] = [];
 
   constructor(private coinbase: CoinbaseService) { }
 
   ngOnInit(): void {
     this.subscription = this.coinbase.getAccountDetails().subscribe((coinbaseWallets: ExchangeWallet[]) => {
+      coinbaseWallets.forEach(wallet => {
+        this.chartLabels.push(wallet.currency);
+        this.chartData.push(wallet.native_amount);
+      });
       this.wallets = coinbaseWallets;
     });
   }
 
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
+  }
+
+  createChartData(wallets): void {
+    wallets.forEach(wallet => {
+      this.chartLabels.push(wallet.currency);
+      this.chartData.push(wallet.native_amount);
+    })
   }
 }

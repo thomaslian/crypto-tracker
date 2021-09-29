@@ -1,3 +1,5 @@
+<p-chart *ngIf="chartData" type="pie" [data]="chart" [style]="{'max-width': '40%'}"></p-chart>
+
 <p-table [value]="data" styleClass="p-datatable-striped" responsiveLayout="scroll" (sortFunction)="customSort($event)" [customSort]="true">
     <ng-template pTemplate="header">
         <tr>
@@ -21,3 +23,4 @@
     </ng-template>
 </p-table>
 <app-loading-spinner [data]="data?.length < 1"></app-loading-spinner>
+

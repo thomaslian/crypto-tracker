@@ -11,12 +11,51 @@ export class TableComponent implements OnInit {
 
   @Input() cols: TableHeader[];
   @Input() data: any[];
+  @Input() chartLabels?: string[];
+  @Input() chartData?: number[];
+
+  chart: any;
 
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.data)
+    console.log(this.chartLabels)
+    console.log(this.chartData)
+    this.chart = {
+      labels: this.chartLabels,
+      datasets: [
+        {
+          data: this.chartData,
+          backgroundColor: [
+            "#FF6384",
+            "#36A2EB",
+            "#FFCE56"
+          ]
+        }
+      ]
+    };
+
+    
+    this.chart = {
+      labels: ['A', 'B', 'C'],
+      datasets: [
+        {
+          data: [300, 50, 100],
+          backgroundColor: [
+            "#FF6384",
+            "#36A2EB",
+            "#FFCE56"
+          ],
+          hoverBackgroundColor: [
+            "#FF6384",
+            "#36A2EB",
+            "#FFCE56"
+          ]
+        }]
+    };
   }
+
+
 
   customSort(event: SortEvent) {
     event.data.sort((a, b) => {

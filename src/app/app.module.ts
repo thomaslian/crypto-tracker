@@ -11,6 +11,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { TableModule } from 'primeng/table';
 import { SidebarModule } from 'primeng/sidebar';
 import { MenuModule } from 'primeng/menu';
+import { ChartModule } from 'primeng/chart';
 
 import { AppComponent } from './app.component';
 import { MainComponent } from './pages/main/main.component';
@@ -43,7 +44,8 @@ import { LoadingSpinnerComponent } from './components/loading-spinner/loading-sp
     FormsModule,
     TableModule,
     SidebarModule,
-    MenuModule
+    MenuModule,
+    ChartModule
   ],
   providers: [],
   bootstrap: [AppComponent]
