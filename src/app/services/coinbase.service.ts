@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 import { sha256 } from 'js-sha256';
 import { Observable, Observer } from 'rxjs';
+import { CoinbaseWallet } from '../interfaces/coinbase-wallet';
 
 @Injectable({
   providedIn: 'root'
@@ -15,12 +16,12 @@ export class CoinbaseService {
 
   constructor(private http: HttpClient) { }
 
-  getAccountDetails(): Observable<Array<any>> {
+  getAccountDetails(): Observable<any[]> {
     const timeStamp = this.getTimestamp();
     const method: string = "GET";
     const requestPath: string = `/v2/accounts`;
     const cbAccessString: string = sha256.hmac(this.apiSecret, timeStamp + method + requestPath);
-    return new Observable((observer: Observer<any>) => {
+    return new Observable((observer: Observer<any[]>) => {
       this.http.get(this.coinbaseApiUrl + requestPath, { headers: { "CB-ACCESS-KEY": this.apiKey, "CB-ACCESS-SIGN": cbAccessString, "CB-ACCESS-TIMESTAMP": timeStamp } }).subscribe((accounts: any) => {
         observer.next(accounts.data)
         observer.complete();

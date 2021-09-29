@@ -1,13 +1,9 @@
 export interface CoinbaseWallet {
     id: string,
     name: string,
-    balance: {
-        amount: number,
-        currency: string
-    },
-    native_balance: {
-        amount: number,
-        currency: string
-    }
+    amount: string,
+    currency: string,
+    native_amount: string,
+    native_currency: string
 
 }
