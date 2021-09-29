@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { CoinbaseService } from 'src/app/services/coinbase.service';
+import { TableHeader } from 'src/app/interfaces/table-header';
 
 
 interface User {
@@ -20,21 +20,21 @@ export class MainComponent implements OnInit {
 
   title: string;
   users: User[];
-  
+  tableHeaders: TableHeader[] = [
+    { field: 'name', header: 'Name' },
+    { field: 'username', header: 'Username' },
+    { field: 'email', header: 'Email' },
+    { field: 'website', header: 'Website' }];
+
 
   constructor(
-    private http: HttpClient,
-    private coinbase: CoinbaseService 
-    ) { }
+    private http: HttpClient
+  ) { }
 
   ngOnInit(): void {
     this.getUsers().then((users: User[]) => {
       this.users = users;
     });
-    /*
-    this.coinbase.getAccountDetails().subscribe(res => {
-      console.log(res);
-    });*/
   }
 
   getUsers(): Promise<User[]> {

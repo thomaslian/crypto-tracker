@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { CoinbaseService } from 'src/app/services/coinbase.service';
 
 @Component({
   selector: 'app-coinbase',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CoinbaseComponent implements OnInit {
 
-  constructor() { }
+  subscription: Subscription;
+
+  constructor(private coinbase: CoinbaseService) { }
 
   ngOnInit(): void {
+    this.subscription = this.coinbase.getAccountDetails().subscribe(res => {
+      console.log(res);
+    });
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 
 }

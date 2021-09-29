@@ -17,6 +17,7 @@ import { MainComponent } from './pages/main/main.component';
 import { SettingsComponent } from './pages/settings/settings.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { CoinbaseComponent } from './pages/coinbase/coinbase.component';
+import { TableComponent } from './components/table/table.component';
 
 
 
@@ -28,6 +29,7 @@ import { CoinbaseComponent } from './pages/coinbase/coinbase.component';
     SettingsComponent,
     SidebarComponent,
     CoinbaseComponent,
+    TableComponent,
   ],
   imports: [
     BrowserModule,
