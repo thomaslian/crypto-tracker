@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { CoinbaseWallet } from 'src/app/interfaces/coinbase-wallet';
+import { ExchangeWallet } from 'src/app/interfaces/exchange-wallet';
 import { TableHeader } from 'src/app/interfaces/table-header';
 import { CoinbaseService } from 'src/app/services/coinbase.service';
 
@@ -19,23 +19,13 @@ export class CoinbaseComponent implements OnInit {
     { field: "currency", header: "Currency" },
     { field: "native_amount", header: "Native amount" },
     { field: "native_currency", header: "Native currency" },];
-  wallets: CoinbaseWallet[] = [];
+  wallets: ExchangeWallet[] = [];
 
   constructor(private coinbase: CoinbaseService) { }
 
   ngOnInit(): void {
-    this.subscription = this.coinbase.getAccountDetails().subscribe((res: any[]) => {
-      console.log(res);
-      res.forEach(wallet => {
-        this.wallets.push({
-          id: wallet.id,
-          name: wallet.name,
-          amount: wallet.balance.amount,
-          currency: wallet.balance.currency,
-          native_amount: wallet.native_balance.amount,
-          native_currency: wallet.native_balance.currency
-        });
-      })
+    this.subscription = this.coinbase.getAccountDetails().subscribe((coinbaseWallets: ExchangeWallet[]) => {
+      this.wallets = coinbaseWallets;
     });
   }
 
