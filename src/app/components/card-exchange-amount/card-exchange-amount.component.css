@@ -1,0 +1,9 @@
+.p-card .p-card-content {
+    padding: 0;
+}
+
+p-card p {
+    font-size: 2em;
+    font-weight: bold;
+    margin: 0;
+}

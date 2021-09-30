@@ -12,6 +12,7 @@ import { TableModule } from 'primeng/table';
 import { SidebarModule } from 'primeng/sidebar';
 import { MenuModule } from 'primeng/menu';
 import { ChartModule } from 'primeng/chart';
+import { CardModule } from 'primeng/card';
 
 import { AppComponent } from './app.component';
 import { MainComponent } from './pages/main/main.component';
@@ -22,6 +23,7 @@ import { TableComponent } from './components/table/table.component';
 import { LoadingSpinnerComponent } from './components/loading-spinner/loading-spinner.component';
 import { HttpHeadersInterceptor } from './interceptors/http-headers.interceptor';
 import { HttpErrorsInterceptor } from './interceptors/http-errors.interceptor';
+import { CardExchangeAmountComponent } from './components/card-exchange-amount/card-exchange-amount.component';
 
 
 @NgModule({
@@ -33,6 +35,7 @@ import { HttpErrorsInterceptor } from './interceptors/http-errors.interceptor';
     CoinbaseComponent,
     TableComponent,
     LoadingSpinnerComponent,
+    CardExchangeAmountComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,7 +48,8 @@ import { HttpErrorsInterceptor } from './interceptors/http-errors.interceptor';
     TableModule,
     SidebarModule,
     MenuModule,
-    ChartModule
+    ChartModule,
+    CardModule
   ],
   providers: [
     {
