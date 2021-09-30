@@ -33,6 +33,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 export const environment = {
   production: false,
   coinbase: {
+    coinbaseApiUrl: 'https://api.coinbase.com/',
     apiKey: "COINBASE API KEY",
     apiSecret: "COINBASE API SECRET"
   }

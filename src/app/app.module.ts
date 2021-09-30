@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 //PrimeNG imports
 import { ButtonModule } from 'primeng/button';
@@ -20,8 +20,7 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { CoinbaseComponent } from './pages/coinbase/coinbase.component';
 import { TableComponent } from './components/table/table.component';
 import { LoadingSpinnerComponent } from './components/loading-spinner/loading-spinner.component';
-
-
+import { HttpHeadersInterceptor } from './interceptors/http-headers.interceptor';
 
 
 @NgModule({
@@ -47,7 +46,13 @@ import { LoadingSpinnerComponent } from './components/loading-spinner/loading-sp
     MenuModule,
     ChartModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpHeadersInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

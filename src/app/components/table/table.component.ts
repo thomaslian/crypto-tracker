@@ -19,6 +19,7 @@ export class TableComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    /*
     console.log(this.chartLabels)
     console.log(this.chartData)
     this.chart = {
@@ -52,7 +53,7 @@ export class TableComponent implements OnInit {
             "#FFCE56"
           ]
         }]
-    };
+    };*/
   }
 
 

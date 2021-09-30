@@ -26,7 +26,8 @@ export class CoinbaseComponent implements OnInit {
   constructor(private coinbase: CoinbaseService) { }
 
   ngOnInit(): void {
-    this.subscription = this.coinbase.getAccountDetails().subscribe((coinbaseWallets: ExchangeWallet[]) => {
+    // For chart Data
+    this.subscription = this.coinbase.getActiveWallets().subscribe((coinbaseWallets: ExchangeWallet[]) => {
       coinbaseWallets.forEach(wallet => {
         this.chartLabels.push(wallet.currency);
         this.chartData.push(wallet.native_amount);
