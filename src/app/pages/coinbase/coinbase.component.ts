@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { ExchangeWallet } from 'src/app/interfaces/exchange-wallet';
-import { TableHeader } from 'src/app/interfaces/table-header';
+import { ExchangeWallet } from 'src/app/models/exchange-wallet';
+import { TableHeader } from 'src/app/models/table-header';
 import { CoinbaseService } from 'src/app/services/coinbase.service';
 
 @Component({
@@ -14,36 +14,31 @@ export class CoinbaseComponent implements OnInit {
   subscription: Subscription;
   tableHeaders: TableHeader[] = [
     { field: "id", header: "ID", sort: false },
-    { field: "name", header: "Name", sort: false},
+    { field: "name", header: "Name", sort: false },
     { field: "amount", header: "Amount", sort: true },
     { field: "currency", header: "Currency", sort: false },
     { field: "native_amount", header: "Native amount", sort: true },
     { field: "native_currency", header: "Native currency", sort: false },];
   wallets: ExchangeWallet[] = [];
-  chartLabels: string[] = [];
-  chartData: number[] = [];
 
   constructor(private coinbase: CoinbaseService) { }
 
   ngOnInit(): void {
-    // For chart Data
-    this.subscription = this.coinbase.getActiveWallets().subscribe((coinbaseWallets: ExchangeWallet[]) => {
-      coinbaseWallets.forEach(wallet => {
-        this.chartLabels.push(wallet.currency);
-        this.chartData.push(wallet.native_amount);
-      });
-      this.wallets = coinbaseWallets;
-    });
+    this.subscription = this.coinbase.getActiveAccounts().subscribe(wallets =>
+      this.wallets = wallets.map(wallet => {
+        return {
+          id: wallet.id,
+          name: wallet.name,
+          amount: parseFloat(wallet.balance.amount),
+          currency: wallet.balance.currency,
+          native_amount: parseFloat(wallet.native_balance.amount),
+          native_currency: wallet.native_balance.currency
+        }
+      })
+    );
   }
 
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
-  }
-
-  createChartData(wallets): void {
-    wallets.forEach(wallet => {
-      this.chartLabels.push(wallet.currency);
-      this.chartData.push(wallet.native_amount);
-    })
   }
 }

@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { TableHeader } from 'src/app/interfaces/table-header';
+import { TableHeader } from 'src/app/models/table-header';
 import { SortEvent } from 'primeng/api';
 
 @Component({
@@ -11,10 +11,14 @@ export class TableComponent implements OnInit {
 
   @Input() cols: TableHeader[];
   @Input() data: any[];
+  /*
   @Input() chartLabels?: string[];
   @Input() chartData?: number[];
 
   chart: any;
+
+  HTML for Chart: <p-chart *ngIf="chartLabels" type="pie" [data]="chart" [style]="{'max-width': '40%'}"></p-chart>
+  */
 
   constructor() { }
 

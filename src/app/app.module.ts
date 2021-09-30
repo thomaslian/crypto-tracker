@@ -21,6 +21,7 @@ import { CoinbaseComponent } from './pages/coinbase/coinbase.component';
 import { TableComponent } from './components/table/table.component';
 import { LoadingSpinnerComponent } from './components/loading-spinner/loading-spinner.component';
 import { HttpHeadersInterceptor } from './interceptors/http-headers.interceptor';
+import { HttpErrorsInterceptor } from './interceptors/http-errors.interceptor';
 
 
 @NgModule({
@@ -50,6 +51,11 @@ import { HttpHeadersInterceptor } from './interceptors/http-headers.interceptor'
     {
       provide: HTTP_INTERCEPTORS,
       useClass: HttpHeadersInterceptor,
+      multi: true
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpErrorsInterceptor,
       multi: true
     }
   ],

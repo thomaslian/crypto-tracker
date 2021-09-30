@@ -32,7 +32,8 @@ export class HttpHeadersInterceptor implements HttpInterceptor {
         "CB-ACCESS-KEY": apiKey,
         "CB-ACCESS-SIGN": accessString,
         "CB-ACCESS-TIMESTAMP": timeStamp
-        }
+        },
+        responseType: "json"
       });
       this.createConsoleLog(request.url, method);
     }

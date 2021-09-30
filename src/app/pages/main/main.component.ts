@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { TableHeader } from 'src/app/interfaces/table-header';
+import { TableHeader } from 'src/app/models/table-header';
 import { Observable, Subscription } from 'rxjs';
 
 
