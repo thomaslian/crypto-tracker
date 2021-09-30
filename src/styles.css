@@ -2,12 +2,13 @@
 body {
     padding: 0;
     margin: 0;
-    height: 100vh;
-    width: 100vw;
+    height: 100%;
+    width: 100%;
 }
 
 body app-root {
     display: grid;
-    grid-template-columns: 250px 20% 20% 20% 20%;
+    width: 100%;
+    grid-template-columns: 250px 20% auto 5%;
     grid-template-rows: 150px auto 150px;
 }

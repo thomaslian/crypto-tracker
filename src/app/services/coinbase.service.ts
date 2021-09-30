@@ -26,7 +26,7 @@ export class CoinbaseService {
 }
 
 
-export interface Accounts {
+interface Accounts {
   id: string,
   name: string,
   primary: boolean,

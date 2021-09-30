@@ -30,7 +30,6 @@ export class CoinbaseComponent implements OnInit {
       this.wallets = wallets.map(wallet => {
         const nativeAmount = parseFloat(wallet.native_balance.amount);
         this.nativeBalance += nativeAmount; // Calculate the total native balance
-
         return {
           id: wallet.id,
           name: wallet.name,
@@ -40,8 +39,8 @@ export class CoinbaseComponent implements OnInit {
           native_currency: wallet.native_balance.currency
         }
       }).sort((a, b) => {
-        return b.native_amount - a.native_amount; // Sort the wallets by native amount
-      })
+        return b.native_amount - a.native_amount; // Sort the wallets by 'native_amount'
+      });
     });
   }
 
